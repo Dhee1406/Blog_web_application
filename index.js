@@ -18,7 +18,6 @@ app.get('/', (req, res) => {
 app.get('/create', (req, res) => {
   res.render('createPost');
 });
-
 app.post('/submit', (req, res) => {
   const Id = posts.length +1;
   const Title = req.body["title"];
@@ -28,11 +27,29 @@ app.post('/submit', (req, res) => {
     TITLE: Title,
     CONTENT: Content
   };
-
   posts.push(newPost);
-
   res.redirect('/');
 });
+
+app.get('/delete', (req, res) => {
+  res.render('deletePost');
+});
+app.post('/delete', (req, res) => {
+  const postId = Number(req.body.id); 
+  const indexToDelete = posts.findIndex(post => post.ID === postId);
+
+  if (indexToDelete !== -1) {
+    posts.splice(indexToDelete, 1);
+    for (let i = indexToDelete; i < posts.length; i++) {
+      posts[i].ID--;
+    }
+    console.log(`Post with ID ${postId} deleted.`);
+  } else {
+    console.log(`Post with ID ${postId} not found.`);
+  }
+  res.redirect('/');
+});
+
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
