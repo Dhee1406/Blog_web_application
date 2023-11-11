@@ -3,6 +3,42 @@
 <head>
   <title>My Blog</title>
   <link rel="stylesheet" href="/css/styles.css">
+
+  <style>
+    .cre, .del, .edi {
+      font-size: large;
+      width: 100px;
+      float: right;
+      margin: 40px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    }
+    .cre {
+      background-color: azure;
+      color: black;
+
+    }
+    .cre:hover {
+      background-color: rgb(118, 186, 118);
+      color: green;
+    }
+    .del {
+      background-color: azure;
+      color: black;
+    }
+    .del:hover {
+      background-color: rgb(255, 149, 149);
+      color: red;
+    }
+    .edi {
+      background-color: azure;
+      color: black;
+    }
+    .edi:hover {
+      background-color: rgb(255, 255, 164);
+      color: rgb(164, 164, 100);
+    }
+  </style>
+
 </head>
 <body>
   <header>
@@ -10,8 +46,10 @@
     <nav>
       <ul>
         <li><a href="/">Home</a></li>
-        <li><a href="/create">Create Post</a></li>
-        <!-- You can add more navigation links here -->
+        <li><a class="cre" href="/create">Create Post</a></li>
+        <li><a class="del" href="/delete">Delete Post</a></li>
+        <li><a class="edi" href="/edit">Edit Post</a></li>
+
       </ul>
     </nav>
   </header>
