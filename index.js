@@ -50,6 +50,25 @@ app.post('/delete', (req, res) => {
   res.redirect('/');
 });
 
+app.get('/edit', (req, res) => {
+  res.render('editPost');
+});
+app.post('/edit', (req, res) => {
+  const postId = Number(req.body.id);
+  const updatedContent = req.body.content;
+
+  const indexToEdit = posts.findIndex(post => post.ID === postId);
+
+  if (indexToEdit !== -1) {
+    posts[indexToEdit].CONTENT = updatedContent;
+    console.log(`Post with ID ${postId} edited.`);
+    console.log(posts);
+  } else {
+    console.log(`Post with ID ${postId} not found.`);
+  }
+
+  res.redirect('/');
+});
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
