@@ -1,7 +1,5 @@
-<!-- Display all existing posts -->
 <%- include("partials/header.ejs") %>
 
-<!-- index.ejs -->
 <div class="container">
 <h1>Blog Posts</h1>
 <ul>
@@ -10,7 +8,7 @@
       <li>
         <h2><%= post.ID  || 'No ID Available' %>. TITLE: <%= post.TITLE || 'No Title Available' %></h2>
         <p><%= post.CONTENT || 'No Content Available' %></p>
-        <!-- Other post details and functionalities -->
+
       </li>
     <% }); %>
   <% } else { %>
@@ -20,6 +18,5 @@
 <a href="/create">Create a New Post</a>
 
 </div>
-
 
 <%- include("partials/footer.ejs") %>
